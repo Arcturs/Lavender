@@ -1,14 +1,9 @@
 package ru.vsu.csf.Sashina.Study.example.models;
 
-import lombok.Data;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -18,7 +13,9 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title, anons, full_text;
+    private String title, anons;
+    @Column(columnDefinition = "TEXT")
+    private String full_text;
     private int views;
     private LocalDate date;
 
